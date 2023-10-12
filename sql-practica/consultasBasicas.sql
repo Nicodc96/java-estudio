@@ -15,8 +15,38 @@
 
     CREATE DATABSE 'consultora_db'
 */
-USE DATABASE 'consultora_db';
+CREATE DATABASE `consultora_db`;
+USE DATABASE `consultora_db`;
 
+/*
+    CREATE TABLE
+
+    Sintaxis: 'CREATE TABLE `nombre_db`.`nombre_tabla`(
+        nombre_columna1 tipo_columna1 NULL/NOT NULL,
+        nombre_columna2 tipo_columna2 NULL/NOT NULL,
+        nombre_columna3 tipo_columna3 NULL/NOT NULL);'
+
+    Se utiliza esta sentencia para crear de manera manual una tabla dentro de nuestra base
+    de datos. Para ello se debe indicar que, en cada de una de sus columnas, el nombre del
+    dato a guardar y su TIPO.
+
+    *ver tipos en W3School*
+
+    Ejemplo:
+
+    CREATE TABLE `consultora_db`.`usuarios` (
+        id INT NOT NULL,
+        nombre VARCHAR(100) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        dni INT NULL
+    );
+*/
+CREATE TABLE `consultora_db`.`usuarios` (
+        `id` INT NOT NULL,
+        `nombre` VARCHAR(100) NOT NULL,
+        `email` VARCHAR(100) NOT NULL,
+        `dni` INT NULL
+    );
 /* 
     SELECT
 
@@ -37,7 +67,7 @@ USE DATABASE 'consultora_db';
     Además, se utiliza el '*' para indicar que se seleccionará todas las columnas
     de la tabla a consultar.
 */
-SELECT nombre,dni FROM usuarios;
+SELECT `nombre`,`dni` FROM `usuarios`;
 
 /*
     Cláusula WHERE
@@ -62,10 +92,10 @@ SELECT nombre,dni FROM usuarios;
     - LIKE
     - IN
 */
-SELECT * FROM usuarios WHERE id = 2;
-SELECT * FROM usuarios WHERE nombre LIKE 'juan';
-SELECT * FROM usuarios WHERE dni BETWEEN 40000000 AND 70000000;
-SELECT * FROM usuarios WHERE email LIKE '%@gmail.com'; /* Todos los usuarios cuyo email sean de tipo gmail */
+SELECT `*` FROM `usuarios` WHERE `id` = 2;
+SELECT `*` FROM `usuarios` WHERE `nombre` LIKE 'juan';
+SELECT `*` FROM `usuarios` WHERE `dni` BETWEEN 40000000 AND 70000000;
+SELECT `*` FROM `usuarios` WHERE `email` LIKE '%@gmail.com'; /* Todos los usuarios cuyo email sean de tipo gmail */
 
 /*
     Sentencia INSERT
@@ -89,10 +119,10 @@ SELECT * FROM usuarios WHERE email LIKE '%@gmail.com'; /* Todos los usuarios cuy
     (5, 'claudio', 'dcdiazcomputacion@gmail.com', 2149013),
     (6, 'florencia', 'fdiaz02@gmail.com', 44205309);
 */
-INSERT INTO usuarios (id, nombre, email, dni) VALUES
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `dni`) VALUES
 (4, 'nicolas', 'diaznicox96@gmail.com', 39468894);
 
-INSERT INTO usuarios (id, nombre, email, dni) VALUES
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `dni`) VALUES
 (4, 'nicolas', 'diaznicox96@gmail.com', 39468894),
 (5, 'claudio', 'dcdiazcomputacion@gmail.com', 2149013),
 (6, 'florencia', 'fdiaz02@gmail.com', 44205309);
