@@ -5,4 +5,5 @@ En este repositorio almaceno todos los archivos que utilizo y utilizaré para re
 ### Editores utilizados:
 - Visual Studio Code
 - Apache NetBeans
+- IntelliJ IDEA
 
