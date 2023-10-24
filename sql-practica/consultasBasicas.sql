@@ -1,52 +1,24 @@
 /*
-    En primer lugar se debe seleccionar una base de datos en el cual trabajaremos,
-    en algunas terminales se selecciona automáticamente si se realiza una consulta
-    dentro de los límites de esa base de datos. De otra manera, utilizaremos la siguiente
-    sintaxis:
+    RELACIONES ENTRE TABLAS
 
-    USE DATABASE nombre_base_datos
+    Existen 4 tipos de relaciones entre tablas:
 
-    Si se quiere hacer una consulta cualquiera desde fuera de cualquier base de datos se debe
-    utilizar el nombre de la base de datos seguido de la tabla, por ejemplo:
+    - 1 a 1 (1:1): Esto sucede cuando el dato de una columna de una tabla se relaciona
+    directamente con el dato de otra columna. Esta información es la misma, y son correlativos.
+    Por ejemplo: "UNA persona tiene UN dni, y UN dni está relacionado a UNA persona"
 
-    SELECT * FROM consultora-db.usuarios;
+    - 1 a MUCHOS (1:N): Esta relación es cuando una tabla tiene una columna con un dato el cual
+    muchas filas de otra tabla comparten.
+    Por ejemplo: "Una empresa tiene UN sector de trabajo 1G, y MUCHOS empleados trabajan en el
+    sector 1G".
 
-    Si no existe una base de datos se debe utilizar la sintaxis:
-
-    CREATE DATABSE 'consultora_db'
+    - MUCHOS a MUCHOS (N:N): Esta relación sucede cuando en una columna de varias filas de una tabla
+    comparte información de varias filas de otra tabla. Estos datos pueden repetirse o no.
+    Por ejemplo: "Las personas conocen MUCHOS lenguajes de programación, MUCHOS lenguajes de programación
+    son conocidos por MUCHAS personas". Esta relación tiene un conflicto y es que es imposible relacionarlas
+    directamente sin una tabla 'x' intermedia 1:1 (N:1 1:1 1:N).
 */
-CREATE DATABASE `consultora_db`;
-USE DATABASE `consultora_db`;
 
-/*
-    CREATE TABLE
-
-    Sintaxis: 'CREATE TABLE `nombre_db`.`nombre_tabla`(
-        nombre_columna1 tipo_columna1 NULL/NOT NULL,
-        nombre_columna2 tipo_columna2 NULL/NOT NULL,
-        nombre_columna3 tipo_columna3 NULL/NOT NULL);'
-
-    Se utiliza esta sentencia para crear de manera manual una tabla dentro de nuestra base
-    de datos. Para ello se debe indicar que, en cada de una de sus columnas, el nombre del
-    dato a guardar y su TIPO.
-
-    *ver tipos en W3School*
-
-    Ejemplo:
-
-    CREATE TABLE `consultora_db`.`usuarios` (
-        id INT NOT NULL,
-        nombre VARCHAR(100) NOT NULL,
-        email VARCHAR(100) NOT NULL,
-        dni INT NULL
-    );
-*/
-CREATE TABLE `consultora_db`.`usuarios` (
-        `id` INT NOT NULL,
-        `nombre` VARCHAR(100) NOT NULL,
-        `email` VARCHAR(100) NOT NULL,
-        `dni` INT NULL
-    );
 /* 
     SELECT
 

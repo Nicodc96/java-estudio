@@ -13,7 +13,7 @@ public class Bucles {
      */
     public static String BuclesPrimero(int numberA, int numberB, boolean conditionIP, boolean conditionReverse){
         StringBuilder resultado = new StringBuilder();
-        ArrayList arrayResultado = new ArrayList();
+        ArrayList<Integer> arrayResultado = new ArrayList<Integer>();
         if (conditionReverse){
             for (int i = numberB; i >= numberA; i--){
                 if (conditionIP && i % 2 == 0){
