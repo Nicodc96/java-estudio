@@ -1,6 +1,9 @@
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
+import herencia.*;
+import herencia.color.Color;
+
 public class Main {
     public static void main(String[] args) {
         /*
@@ -24,8 +27,22 @@ public class Main {
             System.out.println(lineas);
         }
         */
-        BasesDeDatos db1 = new BasesDeDatos("localhost:3306", "root", "");
+        /*BasesDeDatos db1 = new BasesDeDatos("localhost:3306", "root", "");
 
-        System.out.println(BasesDeDatos.ConsultarTodos("cac_java_test", db1));
+        System.out.println(BasesDeDatos.ConsultarTodos("cac_java_test", db1));*/
+
+        Producto libro1 = new Libro(1, "Colmillo Blanco", 5, 315);
+        libro1.setValorBase(100);
+        System.out.println(libro1.getValorBase());
+
+        Producto bicicleta1 = new Bicicleta(2, "BMX Blanca", 15, Color.BLANCO);
+
+        System.out.println(bicicleta1.getValorBase());
+
+        /*
+            Nota: cuando se cambia el valor static de una clase padre en alguna clase hija
+            repecurtirá en toda las demás instancias no importa que no herenden de esa clase
+            hija.
+         */
     }
 }
