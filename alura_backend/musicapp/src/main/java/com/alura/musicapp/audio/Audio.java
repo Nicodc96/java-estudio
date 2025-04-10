@@ -49,7 +49,6 @@ public abstract class Audio {
     protected String calcularTiempo(Boolean esCancion) {
         Float primerNumero = Float.valueOf(Objects.toString(this.getDuracion()).split("[.]")[0]);
         Float segundoNumero = Float.valueOf(Objects.toString(this.getDuracion()).split("[.]")[1]);
-        String strRespuesta = "";
 
         if (!esCancion) {
             segundoNumero = segundoNumero + (primerNumero % 60);
@@ -60,16 +59,14 @@ public abstract class Audio {
             primerNumero++;
             segundoNumero -= 60;
         }
-        
-        if (esCancion) {
-            strRespuesta = primerNumero == 0 ? String.format("%.0f seg", segundoNumero)
-                    : String.format("%.0f m %.0f seg", primerNumero, segundoNumero);
-        } else {
-            strRespuesta = primerNumero == 0 ? String.format("%.0f min", segundoNumero)
+
+        if (!esCancion) {
+            return primerNumero == 0 ? String.format("%.0f min", segundoNumero)
                     : String.format("%.0f h %.0f min", primerNumero, segundoNumero);
         }
 
-        return strRespuesta;
+        return primerNumero == 0 ? String.format("%.0f seg", segundoNumero)
+                : String.format("%.0f m %.0f seg", primerNumero, segundoNumero);
     }
 
     @Override
