@@ -36,16 +36,23 @@ public class Producto {
 
     @Override
     public boolean equals(Object obj) {
-        // No nulo, obj == Producto y, nombre y valores iguales
-        if (Objects.isNull(obj))
-            throw new NullPointerException();
-        if (!(obj instanceof Producto))
-            return false;
-        if (((Producto) obj).getNombre().toLowerCase().equals(this.getNombre().toLowerCase())
-                && ((Producto) obj).getValor().equals(this.getValor())) {
+        if (this == obj) {
             return true;
         }
-        return false;
+
+        if (Objects.isNull(obj) || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Producto productoAComparar = (Producto) obj;
+
+        return productoAComparar.getNombre().equalsIgnoreCase(this.getNombre())
+                && Double.compare(productoAComparar.getValor(), this.getValor()) == 0;
+    }
+
+    @Override
+    public int hashCode(){
+        return this.nombre.hashCode() * this.valor.hashCode();
     }
 
     @Override
