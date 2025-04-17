@@ -101,7 +101,21 @@ public class Ejercicio {
 
     // 8) Pedir dos números e imprimir los pares entre ellos usando for.
     public static void EjercicioOcho(Scanner entradaDeDatos) {
+        int numeroUno = 0;
+        int numeroDos = 0;
 
+        System.out.print("Ingrese el primer número: ");
+        numeroUno = entradaDeDatos.nextInt();
+        
+        System.out.print("Ingrese el segundo número: ");
+        numeroDos = entradaDeDatos.nextInt();
+        
+        System.out.printf("Los números pares entre %d y %d son:\n", numeroUno, numeroDos);
+        for (int i = numeroUno; i < numeroDos; i++){
+            if (i % 2 == 0){
+                System.out.printf("- %d\n", i);
+            }
+        }        
     }
 
     // 9) Calcular la suma de los primeros N números naturales.
