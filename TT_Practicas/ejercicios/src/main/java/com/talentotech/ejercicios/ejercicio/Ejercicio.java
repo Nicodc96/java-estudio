@@ -1,5 +1,6 @@
 package com.talentotech.ejercicios.ejercicio;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -106,16 +107,16 @@ public class Ejercicio {
 
         System.out.print("Ingrese el primer número: ");
         numeroUno = entradaDeDatos.nextInt();
-        
+
         System.out.print("Ingrese el segundo número: ");
         numeroDos = entradaDeDatos.nextInt();
-        
+
         System.out.printf("Los números pares entre %d y %d son:\n", numeroUno, numeroDos);
-        for (int i = numeroUno; i < numeroDos; i++){
-            if (i % 2 == 0){
+        for (int i = numeroUno; i < numeroDos; i++) {
+            if (i % 2 == 0) {
                 System.out.printf("- %d\n", i);
             }
-        }        
+        }
     }
 
     // 9) Calcular la suma de los primeros N números naturales.
@@ -196,28 +197,21 @@ public class Ejercicio {
     }
 
     // 4) Imprimir los 10 primeros números de la serie de Fibonacci.
-    public static void EjercicioCuatro_Avanzado() {
-        short limite = 10;
-        int[] sucesion = new int[limite];
-        short encontrados = 2;
+    public static void EjercicioCuatro_Avanzado(short limite) {
+        double[] sucesion = new double[limite];
+        Double goldNumber = (1 + Math.sqrt(5)) / 2;
 
-        // Fibonacci (los primeros 2 números son 0 y 1)
-        sucesion[0] = 0;
-        sucesion[1] = 1;
-
-        for (short i = 2; encontrados < limite; i++) {
-            sucesion[i] = sucesion[i - 1] + sucesion[i - 2];
-            encontrados++;
-        }
-
-        for (short i = 0; i < sucesion.length; i++) {
-            System.out.printf("Numero %d de la succesión de Fibonacci: %d\n", i + 1, sucesion[i]);
+        for (short i = 0; i < limite; i++) {
+            sucesion[i] = Math
+                    .floor((Math.pow(goldNumber, i) - (Math.pow((Math.pow(-goldNumber, -1)), i))) / Math.sqrt(5));
+            System.out.printf("Numero %d de la succesión de Fibonacci: %.0f\n", i + 1, sucesion[i]);
         }
     }
 
     // 5) Leer 5 números y mostrar cuántos son positivos, negativos y ceros.
     public static void EjercicioCinco_Avanzado(short limite, Scanner entradaDeDatos) {
-        List<Integer> numeros = new ArrayList<>();;
+        List<Integer> numeros = new ArrayList<>();
+        ;
         String[] posiciones = { "primer", "segundo", "tercer", "cuarto", "quinto" };
 
         for (short i = 0; i < limite; i++) {
@@ -281,7 +275,8 @@ public class Ejercicio {
         multiplos.stream().forEach((num) -> System.out.printf("- %d\n", num));
     }
 
-    // 10) Contar cuántos números entre 1 y 1000 son divisibles por 3 o por 7 pero no por ambos.
+    // 10) Contar cuántos números entre 1 y 1000 son divisibles por 3 o por 7 pero
+    // no por ambos.
     public static void EjercicioDiez_Avanzado() {
         List<Integer> multiplos = new ArrayList<>();
         short minimo = 1, maximo = 1000;

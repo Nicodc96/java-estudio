@@ -8,7 +8,14 @@ import com.screenmatch.titulo.*;
 
 public class Main {
     public static void main(String[] args) {
-        Pelicula matrix = new Pelicula("Matrix", 136, LocalDate.of(1999, 6, 10), ClasificacionEdad.R13, "Sisters Wachowski");
+        // ejecutarEjercicioSinListas();
+        // ejecutarEjercicioListas();
+    }
+
+    public static void ejecutarEjercicioSinListas() {
+
+        Pelicula matrix = new Pelicula("Matrix", 136, LocalDate.of(1999, 6, 10), ClasificacionEdad.R13,
+                "Sisters Wachowski");
 
         matrix.agregarValoracion(10);
         matrix.agregarValoracion(7);
@@ -20,7 +27,7 @@ public class Main {
 
         System.out.println(matrix);
 
-        Serie juegoDeTronos = new Serie("Juego de Tronos", LocalDate.of(2011, 4, 17), ClasificacionEdad.R18 , 8, 10, 60);
+        Serie juegoDeTronos = new Serie("Juego de Tronos", LocalDate.of(2011, 4, 17), ClasificacionEdad.R18, 1);
 
         juegoDeTronos.agregarValoracion(9.5);
         juegoDeTronos.agregarValoracion(10);
@@ -37,5 +44,10 @@ public class Main {
         nuevaCalculadora.agregarTitulo(matrix);
 
         System.out.println(nuevaCalculadora.tengoTiempo());
+    }
+
+    public static void ejecutarEjercicioListas() {
+        // Serie losSimpsons = new Serie("Los Simpsons", LocalDate.of(1989, 12, 17),
+        // ClasificacionEdad.ATP, 1);
     }
 }
