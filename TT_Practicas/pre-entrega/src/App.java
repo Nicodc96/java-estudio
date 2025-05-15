@@ -1,47 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import talentotech.Menu;
+import talentotech.controladores.ControladorPedido;
+import talentotech.controladores.ControladorProducto;
+import talentotech.entidades.*;
+import talentotech.menu.Menu;
+
 public class App {
-    public static void main(String[] args) throws Exception {
+    private static List<Pedido> listaDePedidos = new ArrayList<>();
+    private static List<Producto> listaDeProductosTotales = new ArrayList<>();
+
+    public static void main(String[] args) {
         String respuesta = "no";
         Scanner entradaDeDatos = new Scanner(System.in);
-
         do{
             switch (Menu.menuDeOpciones(entradaDeDatos)) {
-                case 1:
-                    System.out.println("Acá se agregará un producto");
-                break;
-                case 2:
-                    System.out.println("Acá se listará todos los productos");
-                break;
-                case 3:
-                    System.out.println("Acá se buscará un producto según su ID");
-                break;
-                case 4:
-                    System.out.println("Acá se modificará un producto");
-                break;
-                case 5:
-                    System.out.println("Acá se eliminará un producto");
-                break;
-                case 6:
-                    System.out.println("Acá se agregará un pedido");
-                break;
-                case 7:
-                    System.out.println("Acá se listarán los pedidos");
-                break;
-                case 9:
-                System.out.print("¿Está seguro que desea salir? Escriba 'si' o 'no': ");
-                entradaDeDatos.nextLine();
-                respuesta = entradaDeDatos.nextLine();
-                while (!respuesta.equalsIgnoreCase("si") && !respuesta.equalsIgnoreCase("no")){
-                    System.out.println("**ERROR** Por favor, escriba 'si' o 'no': ");
-                    respuesta = entradaDeDatos.nextLine();
-                }
-                break;
+                case 1 -> ControladorProducto.manejarAgregarProducto(entradaDeDatos, listaDeProductosTotales);
+                case 2 -> ControladorProducto.manejarMostrarProductos(listaDeProductosTotales);
+                case 3 -> ControladorProducto.manejarModificarProducto(listaDeProductosTotales, entradaDeDatos);
+                case 4 -> ControladorProducto.manejarEliminarProducto(listaDeProductosTotales, entradaDeDatos);
+                case 5 -> ControladorPedido.manejarCrearPedido(entradaDeDatos, listaDeProductosTotales, listaDePedidos);
+                case 6 -> ControladorPedido.manejarMostrarPedidos(listaDePedidos);
+                case 9 -> respuesta = Menu.salirDelPrograma();
             }
             Menu.pressEnterToContinue(entradaDeDatos);
         }while(respuesta.equalsIgnoreCase("no"));
 
-        entradaDeDatos.close();;
+        entradaDeDatos.close();
     }
 }
