@@ -52,7 +52,7 @@ public class Ejercicio {
 
         System.out.println(
                 "El número " + (numeroIngresado % 3 == 0 && numeroIngresado % 5 == 0 ? "es divisible por 5 y por 3."
-                        : "no es divisible por 5 y por 3."));
+                        : "NO es divisible por 5 y por 3."));
     }
 
     // 5) Pedir la edad del usuario y verificar si es mayor de edad (>= 18).
@@ -189,7 +189,7 @@ public class Ejercicio {
             System.out.print("Ingrese su contraseña: ");
             datoEntrada = entradaDeDatos.nextLine();
             if (datoEntrada.equals(password)) {
-                System.out.println("¡Acceso concedido!");
+                System.out.println("Acceso concedido. Ingresando...");
                 break;
             }
             System.out.println(i + 1 < 3 ? "**ERROR** Vuelva a intentar." : "**Se han terminado los intentos.**");
@@ -211,7 +211,6 @@ public class Ejercicio {
     // 5) Leer 5 números y mostrar cuántos son positivos, negativos y ceros.
     public static void EjercicioCinco_Avanzado(short limite, Scanner entradaDeDatos) {
         List<Integer> numeros = new ArrayList<>();
-        ;
         String[] posiciones = { "primer", "segundo", "tercer", "cuarto", "quinto" };
 
         for (short i = 0; i < limite; i++) {
