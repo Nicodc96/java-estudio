@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scannerGlobal = new Scanner(System.in);
 
-        Ejercicio.EjercicioCuatro_Avanzado((short)10);
+        Ejercicio.EjercicioCuatro_Avanzado((short)15);
         
         scannerGlobal.close();
     }
